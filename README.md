@@ -155,6 +155,10 @@ If you encounter any issues, please check:
 
 This project is for educational and demonstration purposes.
 
+<img width="1893" height="1073" alt="image" src="https://github.com/user-attachments/assets/edb75464-e6e1-4b79-b3e8-4736f8a67070" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/00e82473-e09b-4f60-a4ae-af41d65e039c" />
+
 
 Linkdin https://www.linkedin.com/in/mussa-khan-49b784375/Github 
 Github https://github.com/musagithub1
