@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Content Analysis Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Netflix Content Analysis Dashboard</h1>
+            <p>Transform Netflix's content data into actionable insights, revealing key trends, changing audience preferences, and shifts in Netflix's content strategy.</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="tab-button active" data-tab="overview">📊 Overview Dashboard</button>
+            <button class="tab-button" data-tab="deepdive">🔍 Deep Dive Dashboard</button>
+            <button class="tab-button" data-tab="storytelling">📈 Storytelling Dashboard</button>
+        </nav>
+
+        <!-- Loading indicator -->
+        <div id="loading" class="loading">Loading data...</div>
+
+        <!-- Overview Dashboard -->
+        <div id="overview" class="tab-content active">
+            <div class="dashboard-header">
+                <h2>Overview Dashboard</h2>
+                <p>High-level summary of Netflix's content library</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="total-titles">-</h3>
+                    <p>Total Titles</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="total-movies">-</h3>
+                    <p>Movies</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="total-tv-shows">-</h3>
+                    <p>TV Shows</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="countries-count">-</h3>
+                    <p>Countries</p>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>🎥 Total Movies & TV Shows</h3>
+                    <p>Breakdown by type</p>
+                    <canvas id="contentTypeChart"></canvas>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>📈 Content Growth Over Time</h3>
+                    <p>Titles added each year</p>
+                    <canvas id="contentGrowthChart"></canvas>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>🌍 Top Countries</h3>
+                    <p>Leading content producers</p>
+                    <canvas id="topCountriesChart"></canvas>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>🍿 Type Distribution</h3>
+                    <p>Movies vs TV Shows share</p>
+                    <canvas id="typeDistributionChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deep Dive Dashboard -->
+        <div id="deepdive" class="tab-content">
+            <div class="dashboard-header">
+                <h2>Deep Dive Dashboard</h2>
+                <p>Interactive filters and detailed exploration</p>
+                <div class="filter-badges">
+                    <span class="badge">Year</span>
+                    <span class="badge">Type</span>
+                    <span class="badge">Country</span>
+                    <span class="badge">Rating</span>
+                    <span class="badge">Genre</span>
+                </div>
+            </div>
+            
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>⭐ Ratings Distribution</h3>
+                    <p>Audience targeting trends</p>
+                    <canvas id="ratingsChart"></canvas>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>⏳ Movie Duration vs Release Year</h3>
+                    <p>Scatter plot showing duration trends</p>
+                    <canvas id="durationChart"></canvas>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>🎭 Genre Breakdown</h3>
+                    <p>Popular genres across filters</p>
+                    <canvas id="genreChart"></canvas>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>🔍 Country-Year Analysis</h3>
+                    <p>Content distribution by country and year</p>
+                    <canvas id="countryYearChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Storytelling Dashboard -->
+        <div id="storytelling" class="tab-content">
+            <div class="dashboard-header">
+                <h2>Storytelling Dashboard</h2>
+                <p>Netflix's strategic shift after 2017</p>
+                <div class="turning-point-badge">
+                    <span class="badge highlight">2017 Turning Point</span>
+                </div>
+            </div>
+            
+            <div class="charts-grid">
+                <div class="chart-card full-width">
+                    <h3>📈 TV Shows vs Movies Trend</h3>
+                    <p>Content strategy shift with 2017 turning point</p>
+                    <canvas id="trendChart"></canvas>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>🎭 Post-2017 Genres</h3>
+                    <p>Top genres after the strategic shift</p>
+                    <canvas id="post2017GenresChart"></canvas>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>⭐ Post-2017 Ratings</h3>
+                    <p>Content targeting patterns after 2017</p>
+                    <canvas id="post2017RatingsChart"></canvas>
+                </div>
+                
+                <div class="chart-card full-width">
+                    <h3>📝 Strategic Shift Percentage</h3>
+                    <p>Content type distribution over time</p>
+                    <canvas id="percentageChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="insights-section">
+                <h3>💡 Key Insights</h3>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <h4>🔄 Strategic Pivot in 2017</h4>
+                        <p>Netflix significantly increased TV show production after 2017, shifting from a movie-heavy catalog to a more balanced content strategy.</p>
+                    </div>
+                    <div class="insight-card">
+                        <h4>🌍 Global Content Expansion</h4>
+                        <p>The platform expanded beyond US content, with significant investments in international productions, particularly from India, UK, and South Korea.</p>
+                    </div>
+                    <div class="insight-card">
+                        <h4>🎯 Audience Targeting</h4>
+                        <p>Netflix maintains a focus on mature content (TV-MA) while diversifying across all age groups to capture broader market segments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🔧 <strong>Key Skills Applied:</strong> Data Cleaning & Preparation, Advanced Visualizations, Data Storytelling with Annotations, Interactive Dashboard Design</p>
+            <p>This project highlights how data storytelling transforms raw datasets into engaging, interactive narratives — uncovering what happened, explaining why it happened, and revealing the trends shaping Netflix's future.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
