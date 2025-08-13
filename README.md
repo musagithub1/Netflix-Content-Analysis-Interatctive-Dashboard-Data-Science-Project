@@ -50,8 +50,8 @@ An interactive web-based dashboard that transforms Netflix's content data into a
 
 1. **Extract the project files**
    ```bash
-   unzip netflix_interactive_dashboard.zip
-   cd netflix_dashboard_backend
+   unzip Netflix-Content-Analysis-Interatctive-Dashboard-Data-Science-Project.zip
+   cd Netflix-Content-Analysis-Interatctive-Dashboard-Data-Science-Project
    ```
 
 2. **Create and activate virtual environment**
@@ -90,7 +90,7 @@ The Flask backend provides the following API endpoints:
 ## Project Structure
 
 ```
-netflix_dashboard_backend/
+Netflix-Content-Analysis-Interatctive-Dashboard-Data-Science-Project/
 ├── src/
 │   ├── main.py                 # Flask application entry point
 │   ├── routes/
